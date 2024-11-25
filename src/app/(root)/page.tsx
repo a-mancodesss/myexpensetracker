@@ -2,8 +2,8 @@ import { FC } from 'react'
 
 const Page: FC = () => {
   return (
-    <div className="font-ralway ">
-      Enter your code here...
+    <div className="font-ralway">
+    This is the main section
     </div>
   )
 }
