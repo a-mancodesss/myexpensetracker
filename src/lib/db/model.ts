@@ -1,5 +1,5 @@
-import mongoose from 'mongoose'
-import { Category } from '../Types/allTypes';
+import mongoose, { Model } from 'mongoose'
+import { userType } from '../Types/allTypes';
 
 const userSchema = new mongoose.Schema({
     name: { 
@@ -18,22 +18,15 @@ const userSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
- const User = mongoose.models.User || mongoose.model('User', userSchema)
+let userModel:Model<userType>
+try{
+    userModel = mongoose.model<userType>('User')
+}
+catch{
+    userModel = mongoose.model<userType>('User',userSchema)
+}
+//  const User = mongoose.models.User || mongoose.model('User', userSchema)
 
-
-
-// export enum Category {
-//     Food = 'food',
-//     Shop = 'shop',
-//     Travel = 'travel',
-//     Miscellaneous = 'miscellaneous'
-//   }
-
-//  export interface expenseType{
-//     amount:number,
-//     category:Category,
-//     date:Date | null
-//   }
 const expenseSchema = new mongoose.Schema({
     amount: { 
         type: Number, 
@@ -49,9 +42,16 @@ const expenseSchema = new mongoose.Schema({
     }
     , user: { 
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'User' 
+        ref: 'userModel' 
     }
 }, { timestamps: true });
 
- const Expense = mongoose.models.Expense || mongoose.model('Expense', expenseSchema)
- export { User,Expense }
+let Expense:Model<userType>
+try{
+    Expense = mongoose.model<userType>('Expense')
+}
+catch{
+    Expense = mongoose.model<userType>('Expense',expenseSchema)
+}
+//  const Expense = mongoose.models.Expense || mongoose.model('Expense', expenseSchema)
+ export { userModel,Expense }

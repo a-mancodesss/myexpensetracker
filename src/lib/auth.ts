@@ -1,7 +1,7 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import { connectToDb } from "./db/connect"
-import {User} from "./db/model"
+import {userModel} from "./db/model"
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -21,20 +21,19 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
       try{    
         connectToDb()
-        console.log('User*****************',user)
-             const dbUser = await User.findOne({email:user?.email})
-             if(!dbUser){
-              const  newUser = new User({
+             const dbuserModel = await userModel.findOne({email:user.email})
+             if(!dbuserModel){
+              const  newUser = new userModel({
                   name:user.name,
                   email:user.email,
                   imgUrl:user.image,
               })
               await newUser.save();
-              console.log('New user created',newUser)
+              console.log('New userModel created',newUser)
             }
             }
            catch(e){
-                console.log('Error storing the user',e)
+                console.log('Error storing the userModel',e)
                 return false;
            }
           
