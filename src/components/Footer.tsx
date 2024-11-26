@@ -2,6 +2,6 @@ import React from 'react'
 
 export const Footer = () => {
   return (
-    <div className='font-ralway'>Footer</div>
+    <div className='font-ralway text-center'>Developed by Aman 💛</div>
   )
 }

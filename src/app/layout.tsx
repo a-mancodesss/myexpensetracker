@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-
+import { ThemeProvider } from "@/components/theme-provider";
 
 export default function RootLayout({
   children,
@@ -13,11 +12,21 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en" >
-          <body className={` antialiased  mx-auto px-2 sm:px-4`}>
-            <main className="flex flex-col justify-between sm:w-4/5 sm:mx-auto min-h-screen py-4">
+          <body className={` antialiased`}>
+            <main className="flex flex-col justify-between sm:w-2/5 sm:mx-auto min-h-screen py-4 px-4">
+              <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
               <Navbar />
-              <section>{children}</section>
+              <section>
+
+                {children}
+                </section>
               <Footer />
+              </ThemeProvider>
             </main>
           </body>
       </html>

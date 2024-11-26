@@ -1,8 +1,7 @@
 
-import { signIn,signOut } from "@/lib/auth"
-import exp from "constants"
- 
-  function SignIn() {
+import {signIn,signOut } from "@/lib/auth"
+
+export default function SignIn() {
   return (
     <form
       action={async () => {
@@ -10,11 +9,11 @@ import exp from "constants"
         await signIn("google")
       }}
     >
-      <button type="submit"> SignIn</button>
+      <button type="submit">SignIn</button>
     </form>
   )
 } 
- 
+
  function SignOut() {
   return (
     <form

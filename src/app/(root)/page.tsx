@@ -1,9 +1,12 @@
+import Expenditure from '@/components/Expenditure'
+import ExpenseInput from '@/components/expense-input'
 import { FC } from 'react'
 
 const Page: FC = () => {
   return (
     <div className="font-ralway">
-    This is the main section
+    <ExpenseInput/>
+    <Expenditure/>
     </div>
   )
 }
