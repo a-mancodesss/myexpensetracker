@@ -38,3 +38,16 @@ export async function saveExpense(expense: expenseType) {
     throw new Error("Error in saving expense", err);
   }
 }
+
+export async function getExpenses() {
+  const userId = await getUserId();
+  try {
+    connectToDb();
+    const expenses = await Expense.find({ user: userId });
+    console.log(expenses)
+    return expenses;
+  } catch (err: any) {
+    console.log("Error in getting expenses", err);
+    throw new Error("Error in getting expenses", err);
+  }
+}
