@@ -5,7 +5,7 @@ interface ExpenditureProps {
 }
 
 const Expenditure: FC<ExpenditureProps> = ({}) => {
-  return <div>Expenditure</div>
+  return <div></div>
 }
 
 export default Expenditure

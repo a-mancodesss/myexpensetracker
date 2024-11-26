@@ -1,20 +1,20 @@
-//create a UserType basedon schema
-// const userSchema = new mongoose.Schema({
-//   name: { 
-//       type: String, 
-//       unique: true, 
-//       required: true 
-//   }
-//   , email: { 
-//       type: String, 
-//       unique: true, 
-//       required: true 
-//   }
-//   , imgUrl: { 
-//       type: String, 
-//       required: true 
-//   }
-// }, { timestamps: true });
+//update a expenseType basedon schema
+// amount: { 
+//   type: Number, 
+//   required: true 
+// }
+// , category: { 
+//   type: String, 
+//   required: true 
+// }
+// , date: { 
+//   type: Date, 
+//   required: true 
+// }
+// , user: { 
+//   type: mongoose.Schema.Types.ObjectId, 
+//   ref: 'userModel' 
+// }
 
 export type userType = {
     name: string,
@@ -33,4 +33,7 @@ export enum Category {
     amount:number,
     category:Category,
     date:Date | null
+  }
+  export interface expenseTypeWithUser extends expenseType{
+    user:string
   }

@@ -1,5 +1,5 @@
 import mongoose, { Model } from 'mongoose'
-import { userType } from '../Types/allTypes';
+import { expenseTypeWithUser, userType } from '../Types/allTypes';
 
 const userSchema = new mongoose.Schema({
     name: { 
@@ -46,12 +46,12 @@ const expenseSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-let Expense:Model<userType>
+let Expense:Model<expenseTypeWithUser>
 try{
-    Expense = mongoose.model<userType>('Expense')
+    Expense = mongoose.model<expenseTypeWithUser>('Expense')
 }
 catch{
-    Expense = mongoose.model<userType>('Expense',expenseSchema)
+    Expense = mongoose.model<expenseTypeWithUser>('Expense',expenseSchema)
 }
 //  const Expense = mongoose.models.Expense || mongoose.model('Expense', expenseSchema)
  export { userModel,Expense }

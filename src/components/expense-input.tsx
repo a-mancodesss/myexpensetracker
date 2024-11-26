@@ -24,7 +24,7 @@ export default  function ExpenseInput() {
     const newFromData = {
       amount,
       category,
-      date:date? format(date, "PPa") : null,
+      date
     };
     setFormData(newFromData as expenseType);
     
@@ -43,17 +43,15 @@ export default  function ExpenseInput() {
 
   return (
     <form onSubmit={handleSubmit}>
-    <div className=" space-y-4 mb-auto ">
-      <div className="flex justify-around sm:w-5/6  gap-4 ">
+    <div className=" space-y-4  ">
+      <div className="flex justify-between  sm:w-5/6  gap-4 ">
         <div className="w-full sm:w-auto">
-          <Label htmlFor="amount">Amount </Label>
-          <Input  inputMode='numeric'  type="number" name='amount' id="amount" placeholder="Enter amount" value={amount} onChange={(e)=>setAmount(parseInt(e.target.value))} className="w-full" />
+          <Input  inputMode='numeric'  type="number" name='amount' id="amount" placeholder=" amount" value={amount} onChange={(e)=>setAmount(parseInt(e.target.value))} className="w-full" />
         </div>
         <div className="w-full sm:w-auto">
-          <Label htmlFor="category">Category</Label>
           <Select onValueChange={(value:Category)=>setCategory(value)}>
             <SelectTrigger id="category" className="w-full sm:w-[120px]">
-              <SelectValue placeholder="Select category" />
+              <SelectValue placeholder="category" />
             </SelectTrigger>
             <SelectContent>
                 <SelectItem value={Category.Food}>Food</SelectItem>
@@ -64,7 +62,6 @@ export default  function ExpenseInput() {
           </Select>
         </div>
         <div className="w-[60%] sm:w-auto">
-          <Label htmlFor="date">Date</Label><br />
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -76,7 +73,6 @@ export default  function ExpenseInput() {
                 )}
               >
                 <CalendarIcon className="mr-2 h-4 w-4" />
-                {date ? 'Picked' : <span>Pick </span>}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="start">
@@ -88,10 +84,11 @@ export default  function ExpenseInput() {
               />
             </PopoverContent>
           </Popover>
-        </div>
-      </div>
+          </div>
       <Button type="submit" className="btn btn-primary">Add</Button>
     </div>
+        </div>
+      
     </form>
   )
 }

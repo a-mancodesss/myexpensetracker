@@ -13,7 +13,7 @@ export default function RootLayout({
   return (
       <html lang="en" >
           <body className={` antialiased`}>
-            <main className="flex flex-col justify-between sm:w-2/5 sm:mx-auto min-h-screen py-4 px-4">
+            <main className="flex flex-col justify-between sm:w-4/5 sm:mx-auto min-h-screen py-4 px-4">
               <ThemeProvider
             attribute="class"
             defaultTheme="system"
