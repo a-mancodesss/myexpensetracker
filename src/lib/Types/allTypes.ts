@@ -30,8 +30,9 @@ export enum Category {
   }
 
  export interface expenseType{
+    _id:string,
     amount:number,
-    category:Category,
+    category:string,
     date:Date | null
   }
   export interface expenseTypeWithUser extends expenseType{

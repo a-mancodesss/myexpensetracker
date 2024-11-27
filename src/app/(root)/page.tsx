@@ -1,6 +1,7 @@
 import Expenditure from '@/components/Expenditure'
 import ExpenseInput from '@/components/expense-input'
 import { getExpenses } from '@/lib/actions/myaction'
+import { expenseType } from '@/lib/Types/allTypes'
 import { format } from 'date-fns'
 import { get } from 'http'
 import { FC } from 'react'
@@ -10,14 +11,13 @@ const Page: FC = async() => {
   return (
     <div className="font-ralway">
     <ExpenseInput/>
-    <Expenditure/>
+    <div className="wrapper-scrollable lg:w-auto">
+
     {allExpenses.map((expense:any)=>(
-      <div className='mb-2' key={expense._id}>
-        <p>{expense.amount}</p>
-        <p>{expense.category}</p>
-        <p>{format(expense.date,'MM/dd/yyyy')}</p> </div>
+      <Expenditure key={expense._id} {...expense._doc}/>
     )
-    )}
+  )}
+  </div>
     </div>
   )
 }

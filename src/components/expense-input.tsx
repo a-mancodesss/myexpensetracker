@@ -44,7 +44,7 @@ export default  function ExpenseInput() {
   return (
     <form onSubmit={handleSubmit}>
     <div className=" space-y-4  ">
-      <div className="flex justify-between  sm:w-5/6  gap-4 ">
+      <div className="flex justify-center  mx-auto gap-4 ">
         <div className="w-full sm:w-auto">
           <Input  inputMode='numeric'  type="number" name='amount' id="amount" placeholder=" amount" value={amount} onChange={(e)=>setAmount(parseInt(e.target.value))} className="w-full" />
         </div>
@@ -61,18 +61,18 @@ export default  function ExpenseInput() {
               </SelectContent>
           </Select>
         </div>
-        <div className="w-[60%] sm:w-auto">
+        <div className=" sm:w-auto">
           <Popover>
             <PopoverTrigger asChild>
               <Button
                 id="date"
                 variant={"outline"}
                 className={cn(
-                  "w-full sm:w-[240px] justify-start text-left font-normal",
+                  "w-full  justify-start text-left font-normal",
                   !date && "text-muted-foreground"
                 )}
               >
-                <CalendarIcon className="mr-2 h-4 w-4" />
+                <CalendarIcon className="h-4 w-4" />
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="start">
