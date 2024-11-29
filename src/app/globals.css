@@ -63,5 +63,5 @@
 }
 
   .wrapper-scrollable{
-    @apply mt-20 overflow-y-scroll  max-h-[calc(70vh-4rem)];
+    @apply overflow-y-scroll  max-h-[calc(70vh-4rem)] ;
   }

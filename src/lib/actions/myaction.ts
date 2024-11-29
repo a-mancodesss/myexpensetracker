@@ -44,8 +44,9 @@ export async function getExpenses() {
   try {
     connectToDb();
     const expenses = await Expense.find({ user: userId });
-    // console.log(expenses)
-    return expenses;
+    const data =  JSON.parse(JSON.stringify((expenses)));
+    return data;
+    
   } catch (err: any) {
     console.log("Error in getting expenses", err);
     throw new Error("Error in getting expenses", err);

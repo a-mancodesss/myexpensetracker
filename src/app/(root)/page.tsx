@@ -7,17 +7,9 @@ import { get } from 'http'
 import { FC } from 'react'
 
 const Page: FC = async() => {
-  const allExpenses = await getExpenses()
   return (
     <div className="font-ralway">
     <ExpenseInput/>
-    <div className="wrapper-scrollable lg:w-auto">
-
-    {allExpenses.map((expense:any)=>(
-      <Expenditure key={expense._id} {...expense._doc}/>
-    )
-  )}
-  </div>
     </div>
   )
 }

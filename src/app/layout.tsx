@@ -12,7 +12,7 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en" >
-          <body className={` antialiased`}>
+          <body className={` antialiased`} suppressHydrationWarning>
             <main className="flex flex-col justify-between sm:w-[36rem] sm:mx-auto min-h-screen py-4 px-4">
               <ThemeProvider
             attribute="class"
