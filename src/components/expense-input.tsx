@@ -31,7 +31,7 @@ export default  function ExpenseInput() {
   const [category, setCategory] = useState<Category>();
   const [amount, setAmount] = useState<number>(0);
   const [formData, setFormData] = useState<expenseType>();
-
+  
   const [allExpenses, setAllExpenses] = useState<expenseType[]>([]);
   const handleSubmit = (e:FormEvent) => {
     e.preventDefault();
@@ -120,6 +120,8 @@ export default  function ExpenseInput() {
 <TableRow>
 <TableHead className="w-[150px]">Date</TableHead>
 <TableHead>Category</TableHead>
+<TableHead className='w-[80px] '>Delete</TableHead>
+<TableHead className='w-[80px]'>Edit</TableHead>
 <TableHead className="text-right">Amount</TableHead>
 </TableRow>
 </TableHeader>
@@ -133,6 +135,8 @@ export default  function ExpenseInput() {
       )}
         <TableRow ref={targetRef}>
       <TableCell className="font-bold text-orange-400">Total Expense </TableCell>
+      <TableCell>{''}</TableCell>
+      <TableCell>{''}</TableCell>
       <TableCell>{''}</TableCell>
       <TableCell className="text-right">{totalExpense}</TableCell>
     </TableRow>
