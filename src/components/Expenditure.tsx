@@ -13,16 +13,10 @@ import { returnedDataType } from '@/lib/Types/allTypes'
 import { Edit, Trash } from 'lucide-react'
 import { deleteExpense, editExpense } from '@/lib/actions/myaction'
 import { revalidatePath } from 'next/cache'
+import { DialogDemo } from './EditExpense'
+import { Button } from './ui/button'
 
 const Expenditure = (expense:returnedDataType) => {
-  console.log(expense)
-  const handleEdit = async () => {
-    await editExpense(expense);
-    revalidatePath('/')
-  }
-  const handleDelete = () => {
-    console.log('delete*********************')
-  }
 
   return (
 
@@ -33,10 +27,11 @@ const Expenditure = (expense:returnedDataType) => {
       <TableCell  className='text-red-500'>
         <form action={deleteExpense}>
         <input type="hidden" name="id" value={expense._id} />
-          <button>  <Trash  size={20}/></button> 
+        <Button variant="outline"><Trash size={20}/></Button>
+
         </form>
         </TableCell>
-      <TableCell className=''> <Edit size={20}/> </TableCell>
+      <TableCell className=''> <DialogDemo /> </TableCell>
 
       <TableCell className="text-right text-red-700">{expense.amount}</TableCell>
     </TableRow>

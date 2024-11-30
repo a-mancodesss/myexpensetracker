@@ -41,17 +41,20 @@ export async function saveExpense(expense: expenseType) {
   }
 }
 //to edit the data based on the user id and that expense id
-export async function editExpense(expense: expenseTypeWithUser) {
-  const userId = await getUserId();
-  const newExpense = {
-    amount: expense.amount,
-    category: expense.category,
-    date: expense.date,
-    user: userId,
-  };
+export async function editExpense(formData: any) {
+  const output= Object.fromEntries(formData);
+console.log(output)
+  // const ExpenseId = id;
+  // const userId = await getUserId();
+  // const newExpense = {
+  //   amount: expense.amount,
+  //   category: expense.category,
+  //   date: expense.date,
+  //   user: userId,
+  // };
   try {
-    connectToDb();
-    await Expense.updateOne({ _id: expense._id, user: userId }, newExpense);
+    // connectToDb();
+    // await Expense.updateOne({ _id: expense._id, user: userId }, newExpense);
     console.log('Expense updated successfully!');
   } catch (err: any) {
     console.log("Error in updating expense", err);
@@ -62,7 +65,6 @@ export async function editExpense(expense: expenseTypeWithUser) {
 export async function deleteExpense(formData:any) {
   const {id} = Object.fromEntries(formData);
   const ExpenseId = id;
-  console.log(ExpenseId)
   const userId = await getUserId();
   try {
     connectToDb();
